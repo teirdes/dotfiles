@@ -1,0 +1,32 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Terminal emulator
+set $term urxvt
+
+# Application launcher
+set $uifont "Gyre-Pagella 9"
+set $highlight #aadcdc
+set $prompt #11c8c8
+set $menu bemenu-run -i --fn $uifont -p "⚙" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec --
+
+### Output configuration
+output * bg .config/sway/images/background_image.jpg fill
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+exec_always .config/waybar/waybar.sh
+
+include .config/sway/config.d/*

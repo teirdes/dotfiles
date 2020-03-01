@@ -1,0 +1,9 @@
+# Custom keybindings (found on Arch Wiki)
+
+    # Monitor brightness
+    bindsym $mod+p exec brightnessctl set 5%-
+    bindsym $mod+i exec brightnessctl set 5%+
+
+    # Volume on speakers
+    bindsym $mod+Shift+p exec pactl set-sink-volume @DEFAULT_SINK@ 5%-
+    bindsym $mod+Shift+i exec pactl set-sink-volume @DEFAULT_SINK@ 5%+

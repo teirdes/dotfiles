@@ -1,0 +1,11 @@
+### Input configuration
+#
+# Swedish and Romanian keyboard
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+	repeat_delay 500
+	repeat_rate 60
+	xkb_layout se,ro
+	xkb_options grp:alt_shift_toggle
+}
+

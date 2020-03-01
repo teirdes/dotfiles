@@ -1,0 +1,80 @@
+{
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 20,
+
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-right": ["tray", "custom/keyboard", "network", "network#addon1", "network#addon2", "battery", "backlight", "clock", "idle_inhibitor"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "format": "{name}",
+        "disable-scroll": true
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "| {:%Y-%m-%d | %T (%Z)}",
+	"interval": 1,
+        "tooltip": false
+    },
+    "battery": {
+        "format": "| {icon} {capacity}% ({time})",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "| {icon} {capacity}% (🔌)",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "network": {
+        "format-wifi": "{icon} {essid} ({ipaddr})",
+	"format-wifi-alt": "[{bandwidthUpBits} {bandwidthDownBits} {signaldBm} dBm {frequency} Hz]",
+        "format-alt-click": "click-right",
+	"format-disconnected": "{icon} {ifname} disconnected",
+        "format-icons": {
+            "wifi": [""], 
+            "Ethernet": ["", "" ,"", ""],
+	    "disconnected": [""]
+        },
+        "on-click": "termite -e nmtui",
+    "tooltip": false
+    },
+    "network#addon1": {
+        "format": "| ↑{bandwidthUpBits} ↓{bandwidthDownBits}"
+    },
+    "network#addon2": {
+        "format": "| {signaldBm}dBm ({signalStrength}%)"
+    },
+    "backlight": {
+        "format": "| {icon} {percent}",
+        "format-alt-click": "click-right",
+        "format-icons": ["🔅", "🔆"]
+    },
+    "custom/keyboard": {
+        "format": "⌨ {} |",
+        "format-alt": "{} ",
+        "format-alt-click": "click-right",
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/keyboard.sh",
+        "tooltip": false
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 15
+    }
+}
